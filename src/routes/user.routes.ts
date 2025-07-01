@@ -1,8 +1,6 @@
 import { FastifyInstance } from "fastify";
 import { UserUseCase } from "../usecases/user.usecase";
-import { UserCreateSchema, UserResponseSchema } from "../schemas/user.schema";
-import { z } from "zod";
-
+import { UserCreate } from "../interfaces/user.interface";
 
 export async function userRoutes(fastify: FastifyInstance) {
   const userUseCase = new UserUseCase();

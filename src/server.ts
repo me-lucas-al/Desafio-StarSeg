@@ -5,28 +5,23 @@ import fastifyCors from "@fastify/cors";
 import { userRoutes } from "./routes/user.routes";
 import { contactRoutes } from "./routes/contact.routes";
 
-const app = fastify({
+const app: FastifyInstance = fastify({
   logger: true,
-}).withTypeProvider<ZodTypeProvider>();
-
-app.register(cors);
-
-app.setValidatorCompiler(validatorCompiler);
-app.setSerializerCompiler(serializerCompiler);
+});
 
 app.register(fastifyCors,{ origin: '*' })
 app.register(swagger, {
   openapi: {
     info: {
-      title: "Agenda API",
-      description: "Documentação da API de contatos e usuários",
-      version: "1.0.0",
+      title: 'Agenda API',
+      description: 'Documentação da API de contatos e usuários',
+      version: '1.0.0',
     },
   },
-  transform: jsonSchemaTransform,
 });
+
 app.register(swaggerUI, {
-  routePrefix: "/docs",
+  routePrefix: '/docs',
   uiConfig: {
     docExpansion: 'list', 
     deepLinking: true,    
