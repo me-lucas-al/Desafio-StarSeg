@@ -35,8 +35,8 @@ app.register(swaggerUI, {
   transformStaticCSP: (header) => header,
 });
 
-app.register(contactRoutes, { prefix: "/contacts" });
 app.register(userRoutes, { prefix: "/users" });
+app.register(contactRoutes, { prefix: "/contacts" });
 
 const start = async () => {
   try {

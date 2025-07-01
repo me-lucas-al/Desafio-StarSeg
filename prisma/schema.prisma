@@ -19,12 +19,19 @@ model User {
 }
 
 model Contacts {
-  id     String @id @default(uuid())
-  name   String
-  email  String
-  phone  String
-  userId String
-  user   User   @relation(fields: [userId], references: [id])
+  id        String   @id @default(uuid())
+  name      String
+  email     String
+  phone     String
+  cep       String  
+  street    String   
+  number    String   
+  district  String   
+  city      String   
+  state     String   
+  complement String? 
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
 
   @@map("contacts")
 }
